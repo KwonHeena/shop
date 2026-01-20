@@ -15,18 +15,31 @@ const ProductCart = () => {
         장바구니
       </h2>
       <ul className="cartItem">
-        {cart.map((item, idx) => (
-          <li key={idx}>
-            <div className="img">
-              <img src={item.img} alt="" />
-            </div>
-            <div className="info">
-              <p className="title">{item.title}</p>
-              <p>수량 : {item.quantity}</p>
-              <p>금액 : {(item.quantity * item.price).toLocaleString()}원</p>
-            </div>
+        {cart.length === 0 ? (
+          <li
+            style={{
+              border: "none",
+              padding: "15px 0 0 0",
+              justifyContent: "center",
+              fontSize: 18,
+            }}
+          >
+            장바구니가 비어있습니다 🛒
           </li>
-        ))}
+        ) : (
+          cart.map((item, idx) => (
+            <li key={idx}>
+              <div className="img">
+                <img src={item.img} alt="" />
+              </div>
+              <div className="info">
+                <p className="title">{item.title}</p>
+                <p>수량 : {item.quantity}</p>
+                <p>금액 : {(item.quantity * item.price).toLocaleString()}원</p>
+              </div>
+            </li>
+          ))
+        )}
       </ul>
       <p style={{ textAlign: "right", marginTop: 25, fontSize: 23 }}>
         총 합계 : {total.toLocaleString()}원

@@ -109,6 +109,7 @@ section {
 .img_wrap {
   overflow: hidden;
   position: relative;
+  margin-bottom: 15px;
 }
 .img_wrap img {
   transition: all 0.3s;
@@ -120,6 +121,18 @@ section {
 .img_wrap:hover .new {
   opacity: 1;
   visibility: visible;
+}
+.item_choice {
+  font-size: 12px;
+  color: rgb(1, 1, 104);
+  margin-top: 2px;
+}
+.item_title {
+  font-weight: 600;
+}
+.item_price {
+  margin-top: 10px;
+  font-size: 15px;
 }
 
 /* Login */
@@ -175,6 +188,9 @@ section {
 }
 
 /* 장바구니 */
+.cartItem {
+  padding: 0;
+}
 .cartItem li {
   display: flex;
   gap: 40px;

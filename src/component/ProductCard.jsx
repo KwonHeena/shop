@@ -12,9 +12,9 @@ const ProductCard = ({ item, id }) => {
         <img src={item.img} alt="" />
         {item.new ? <span className="new">New</span> : ""}
       </div>
-      {item.choice ? <p>Consiouse choice</p> : ""}
-      <p>{item.title}</p>
-      <p>&#92;{item.price.toLocaleString()}</p>
+      <p className="item_title">{item.title}</p>
+      <p class="item_price">&#92;{item.price.toLocaleString()}</p>
+      {item.choice ? <p className="item_choice">Consiouse choice</p> : ""}
     </div>
   );
 };
