@@ -5,6 +5,7 @@ import ProductDetail from "./page/ProductDetail";
 import Login from "./page/Login";
 import NavBar from "./component/NavBar";
 import PrivateRoute from "./route/PrivateRoute";
+import ProductCart from "./page/ProductCart";
 
 // 전체상품페이지, 로그인, 상품상세페이지
 // 전체 상품페이지에서 전체상품 보기
@@ -22,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
+        <Route path="/cart" element={<ProductCart />} />
         <Route path="/products/:id" element={<PrivateRoute auth={auth} />} />
       </Routes>
     </div>

@@ -8,13 +8,13 @@ const ProductCard = ({ item, id }) => {
   };
   return (
     <div onClick={showDetail} style={{ cursor: "pointer" }}>
-      <div>
+      <div className="img_wrap">
         <img src={item.img} alt="" />
+        {item.new ? <span className="new">New</span> : ""}
       </div>
       {item.choice ? <p>Consiouse choice</p> : ""}
       <p>{item.title}</p>
       <p>&#92;{item.price.toLocaleString()}</p>
-      {item.new ? <span>New</span> : ""}
     </div>
   );
 };

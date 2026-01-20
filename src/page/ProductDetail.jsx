@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import useCartStore from "../store/useCartStore";
 
 const ProductDetail = () => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const [totalPrice, setTotalPrice] = useState("");
   const { id } = useParams();
 
@@ -17,7 +18,7 @@ const ProductDetail = () => {
   const [size, setSize] = useState();
 
   const getUrlFetch = async () => {
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://my-json-server.typicode.com/KwonHeena/shop/products/${id}`;
     const res = await fetch(url);
     const data = await res.json();
     setItem(data);
@@ -54,23 +55,33 @@ const ProductDetail = () => {
     setTotalPrice((num * item.price).toLocaleString());
   };
 
-  // 장바구니에 추가
-  // 사이즈 선택안했을 때 알림창 표출
-  const addCart = () => {
+  // 장바구니 추가
+  const addCartStore = useCartStore((state) => state.addToCart);
+
+  const addToCart = () => {
     if (!size) {
-      alert("사이즈를 선택하세요.");
+      alert("사이즈를 선택하세요");
+      return;
     } else {
       alert("장바구니에 추가되었습니다.");
     }
+    addCartStore({
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      img: item.img,
+      size: size,
+      quantity: num,
+    });
   };
 
   return (
     <Container className="product_detail_wrap">
-      <Row>
-        <Col xs={6}>
+      <Row style={{ justifyContent: "flex-end" }}>
+        <Col xs={6} className="product_img">
           <img src={item.img} alt="" />
         </Col>
-        <Col>
+        <Col xs={6}>
           <p className="title">{item.title}</p>
           <p className="price">&#92;{item?.price?.toLocaleString()}</p>
           {item.choice && <p className="choice">Consiouse choice</p>}
@@ -103,7 +114,7 @@ const ProductDetail = () => {
             </div>
           </Col>
           <Col className="totalPrice">총 금액 : {totalPrice}원</Col>
-          <Button variant="dark" className="addCart" onClick={addCart}>
+          <Button variant="dark" className="addCart" onClick={addToCart}>
             장바구니에 추가
           </Button>
           <Col></Col>
