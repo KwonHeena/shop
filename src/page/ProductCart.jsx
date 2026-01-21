@@ -33,8 +33,11 @@ const ProductCart = () => {
                 <img src={item.img} alt="" />
               </div>
               <div className="info">
-                <p className="title">{item.title}</p>
-                <p>수량 : {item.quantity}</p>
+                <div className="text">
+                  <p className="title">{item.title}</p>
+                  <p className="size">사이즈 : {item.size}</p>
+                  <p>수량 : {item.quantity}</p>
+                </div>
                 <p>금액 : {(item.quantity * item.price).toLocaleString()}원</p>
               </div>
             </li>

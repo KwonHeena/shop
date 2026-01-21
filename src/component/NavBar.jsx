@@ -28,16 +28,19 @@ const NavBar = ({ auth, setAuth }) => {
 
   // 검색어
   const search = (e) => {
-    if (e.key === "Enter") {
-      let keyword = e.target.value.trim();
-      if (!keyword) return;
-      navigate(`/?q=${keyword}`);
+    let keyword = e.target.value.trim();
+    navigate(`/?q=${keyword}`);
+    if (!keyword) {
+      navigate("/");
     }
   };
 
   // 메뉴 클릭
   const searchCategory = (item) => {
     navigate(`/?q=${item}`);
+    if (item === "전체") {
+      navigate("/");
+    }
   };
   return (
     <Container>
@@ -83,7 +86,7 @@ const NavBar = ({ auth, setAuth }) => {
               <Form.Control
                 type="text"
                 placeholder="검색어 입력"
-                onKeyDown={search}
+                onChange={search}
               />
             </div>
           </div>

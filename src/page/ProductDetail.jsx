@@ -83,7 +83,7 @@ const ProductDetail = () => {
         </Col>
         <Col xs={6}>
           <p className="title">{item.title}</p>
-          <p className="price">&#92;{item?.price?.toLocaleString()}</p>
+          <p className="price">￦{item?.price?.toLocaleString()}</p>
           {item.choice && <p className="choice">Consiouse choice</p>}
           <Form.Select
             className="size_select"

@@ -13,7 +13,7 @@ const ProductCard = ({ item, id }) => {
         {item.new ? <span className="new">New</span> : ""}
       </div>
       <p className="item_title">{item.title}</p>
-      <p class="item_price">&#92;{item.price.toLocaleString()}</p>
+      <p class="item_price">￦{item.price.toLocaleString()}</p>
       {item.choice ? <p className="item_choice">Consiouse choice</p> : ""}
     </div>
   );

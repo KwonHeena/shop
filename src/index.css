@@ -1,15 +1,39 @@
+@font-face {
+  font-family: "GMarketSans";
+  src: ("/fonts/GmarketSansLight.woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GMarketSans";
+  src: ("/fonts/GmarketSansMedium.woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GMarketSans";
+  src: ("/fonts/GmarketSans600.woff");
+  font-weight: 600;
+  font-display: swap;
+}
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   color: inherit;
   letter-spacing: -0.04em;
+  font-family: "GMarketSans";
+  font-weight: 300;
+  font-size: 16px;
 }
 body p {
   margin: 0;
 }
 body {
   padding: 0 40px;
+  font-family: "GMarketSans";
 }
 button {
   border: none;
@@ -41,7 +65,7 @@ header .header_inner {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 18px;
+
   line-height: 1;
 }
 .login_button button {
@@ -57,7 +81,7 @@ header .header_inner {
 }
 .logo a {
   font-size: 45px;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
 }
 nav > ul {
@@ -97,7 +121,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-weight: bold;
+  font-weight: 600;
   padding: 5px 15px;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.7);
@@ -217,11 +241,16 @@ section {
 .cartItem li .info {
   flex: 1;
 }
+.cartItem li .info > p {
+  text-align: right;
+}
+.cartItem li .info .text p {
+  font-size: 14px;
+}
+.cartItem li .info .text .title {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
 .cartItem li .title {
   font-weight: 600;
-  margin-bottom: 30px;
-}
-.cartItem li p:not(.title) {
-  font-size: 16px;
-  text-align: right;
 }
